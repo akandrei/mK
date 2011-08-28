@@ -1,0 +1,10 @@
+C:\Users\Master\Documents\Visual Studio 2010\Projects\mKardz\mvcStore\mvcStore.Tests\bin\Debug\mvcStore.Tests.dll.config
+C:\Users\Master\Documents\Visual Studio 2010\Projects\mKardz\mvcStore\mvcStore.Tests\bin\Debug\mvcStore.Tests.dll
+C:\Users\Master\Documents\Visual Studio 2010\Projects\mKardz\mvcStore\mvcStore.Tests\bin\Debug\mvcStore.Tests.pdb
+C:\Users\Master\Documents\Visual Studio 2010\Projects\mKardz\mvcStore\mvcStore.Tests\bin\Debug\mvcStore.dll
+C:\Users\Master\Documents\Visual Studio 2010\Projects\mKardz\mvcStore\mvcStore.Tests\bin\Debug\mvcStore.pdb
+C:\Users\Master\Documents\Visual Studio 2010\Projects\mKardz\mvcStore\mvcStore.Tests\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Master\Documents\Visual Studio 2010\Projects\mKardz\mvcStore\mvcStore.Tests\obj\Debug\mvcStore.Tests.dll
+C:\Users\Master\Documents\Visual Studio 2010\Projects\mKardz\mvcStore\mvcStore.Tests\obj\Debug\mvcStore.Tests.pdb
+C:\Users\Master\Documents\Visual Studio 2010\Projects\mKardz\mvcStore\mvcStore.Tests\bin\Debug\EntityFramework.dll
+C:\Users\Master\Documents\Visual Studio 2010\Projects\mKardz\mvcStore\mvcStore.Tests\bin\Debug\EntityFramework.xml
