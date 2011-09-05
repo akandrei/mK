@@ -90,6 +90,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\BlobEntities.cs" />
     <Compile Include="Models\StoreModels.cs" />
     <Compile Include="Models\StoreEntities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -40,6 +40,11 @@ namespace mvcStore
             // Code that runs on application startup
             System.Data.Entity.Database.SetInitializer<mvcStore.Models.StoreEntities>
                 (new System.Data.Entity.DropCreateDatabaseIfModelChanges<mvcStore.Models.StoreEntities>());
+
+            Microsoft.WindowsAzure.CloudStorageAccount.SetConfigurationSettingPublisher((configName, configSetter) =>
+            {
+                configSetter(RoleEnvironment.GetConfigurationSettingValue(configName));
+            });
         }
     }
 }

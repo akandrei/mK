@@ -12,7 +12,7 @@ namespace mvcStore.Controllers
     public class ProductsController : Controller
     {
         private StoreEntities db = new StoreEntities();
-
+        private BlobEntities blobs = new BlobEntities();
         //
         // GET: /Products/
 
@@ -46,6 +46,12 @@ namespace mvcStore.Controllers
         {
             if (ModelState.IsValid)
             {
+                foreach (string file in Request.Files)
+                {
+                    HttpPostedFileBase hpf = Request.Files[file] as HttpPostedFileBase;
+                    if (hpf.ContentLength > 0) product.ImageURI = blobs.Upload(hpf);
+                    // TODO: stop the loop once one image has been added
+                }
                 db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");  

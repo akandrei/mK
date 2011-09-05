@@ -30,6 +30,7 @@ namespace mvcStore.Models
         public ProductKind Kind { get; set; }
         public decimal Cost { get; set; }
         public string Description { get; set; }
+        public string ImageURI { get; set; }
     }
 
     public enum ProductKind
