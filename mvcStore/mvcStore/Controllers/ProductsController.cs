@@ -24,10 +24,11 @@ namespace mvcStore.Controllers
         //
         // GET: /Products/Details/5
 
-        public ViewResult Details(int id)
+        public /*ViewResult*/JsonResult Details(int id)
         {
             Product product = db.Products.Find(id);
-            return View(product);
+            //return View(product);
+            return this.Json(product, JsonRequestBehavior.AllowGet);
         }
 
         //
@@ -35,6 +36,7 @@ namespace mvcStore.Controllers
 
         public ActionResult Create()
         {
+            ViewData["ProductTypes"] = new SelectList(db.ProductTypes.ToList(), "ProductTypeId", "Name");
             return View();
         } 
 
@@ -52,6 +54,7 @@ namespace mvcStore.Controllers
                     if (hpf.ContentLength > 0) product.ImageURI = blobs.Upload(hpf);
                     // TODO: stop the loop once one image has been added
                 }
+                product.ProductTypeId = Convert.ToInt32(Request["ProductTypes"]);
                 db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");  

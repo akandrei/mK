@@ -26,11 +26,25 @@ namespace mvcStore.Models
     public class Product
     {
         public int ProductId { get; set; }
+        public int ProductTypeId { get; set; }
         public string Name { get; set; }
-        public ProductKind Kind { get; set; }
         public decimal Cost { get; set; }
         public string Description { get; set; }
         public string ImageURI { get; set; }
+
+        public Product()
+        {
+            ProductTypeId = 0;
+        }
+    }
+
+    public class ProductType
+    {
+        public int ProductTypeId { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+//        public virtual ICollection<Product> Products { get; set; }
+//        public string IconURI { get; set; }
     }
 
     public enum ProductKind

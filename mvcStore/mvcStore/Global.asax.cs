@@ -34,12 +34,11 @@ namespace mvcStore
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
             // Code that runs on application startup
             System.Data.Entity.Database.SetInitializer<mvcStore.Models.StoreEntities>
-                (new System.Data.Entity.DropCreateDatabaseIfModelChanges<mvcStore.Models.StoreEntities>());
+                (new mvcStore.Models.StoreInitializer());
 
             Microsoft.WindowsAzure.CloudStorageAccount.SetConfigurationSettingPublisher((configName, configSetter) =>
             {

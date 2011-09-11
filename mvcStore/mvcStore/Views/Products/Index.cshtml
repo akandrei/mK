@@ -17,6 +17,12 @@
         <th>
             Description
         </th>
+        <th>
+            ImageURI
+        </th>
+        <th>
+            ProductTypeId
+        </th>
         <th></th>
     </tr>
 
@@ -27,6 +33,12 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImageURI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductTypeId)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
