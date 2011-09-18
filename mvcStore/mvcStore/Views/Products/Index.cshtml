@@ -1,4 +1,4 @@
-﻿@model IEnumerable<mvcStore.Models.Product>
+﻿@model mvcStore.ViewModels.ProductsListViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -26,7 +26,7 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.Products) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
@@ -38,12 +38,12 @@
             @Html.DisplayFor(modelItem => item.ImageURI)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ProductTypeId)
+            @Html.DisplayFor(modelItem => Model.ProductTypes[item.ProductTypeId])
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>
 }

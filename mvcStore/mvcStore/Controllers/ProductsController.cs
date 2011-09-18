@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using mvcStore.Models;
+using mvcStore.ViewModels;
 
 namespace mvcStore.Controllers
 { 
@@ -18,7 +19,12 @@ namespace mvcStore.Controllers
 
         public ViewResult Index()
         {
-            return View(db.Products.ToList());
+            var viewModel = new ProductsListViewModel
+            {
+                Products = db.Products.ToList(),
+                ProductTypes = db.ProductTypes.ToDictionary(k => k.ProductTypeId, v => v.Name)
+            };
+            return View(viewModel);
         }
 
         //
@@ -36,31 +42,33 @@ namespace mvcStore.Controllers
 
         public ActionResult Create()
         {
-            ViewData["ProductTypes"] = new SelectList(db.ProductTypes.ToList(), "ProductTypeId", "Name");
-            return View();
+            var viewModel = new NewProductViewModel();
+            viewModel.ProductTypes = db.ProductTypes.Select(x => new SelectListItem { Value = x.Name, Text = x.Name }).ToList();
+            viewModel.SelectedTypeId = "Good";
+            return View(viewModel);
         } 
 
         //
         // POST: /Products/Create
 
         [HttpPost]
-        public ActionResult Create(Product product)
+        public ActionResult Create(NewProductViewModel productViewModel)
         {
             if (ModelState.IsValid)
             {
                 foreach (string file in Request.Files)
                 {
                     HttpPostedFileBase hpf = Request.Files[file] as HttpPostedFileBase;
-                    if (hpf.ContentLength > 0) product.ImageURI = blobs.Upload(hpf);
+                    if (hpf.ContentLength > 0) productViewModel.Product.ImageURI = blobs.Upload(hpf);
                     // TODO: stop the loop once one image has been added
                 }
-                product.ProductTypeId = Convert.ToInt32(Request["ProductTypes"]);
-                db.Products.Add(product);
+                productViewModel.Product.ProductTypeId = db.ProductTypes.Where(pt => pt.Name == productViewModel.SelectedTypeId).FirstOrDefault().ProductTypeId;
+                db.Products.Add(productViewModel.Product);
                 db.SaveChanges();
-                return RedirectToAction("Index");  
+                return RedirectToAction("Index");
             }
 
-            return View(product);
+            return View(productViewModel);
         }
         
         //

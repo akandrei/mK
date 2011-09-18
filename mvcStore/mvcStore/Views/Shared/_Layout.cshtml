@@ -8,24 +8,42 @@
     <script src="@Url.Content("~/Scripts/modernizr-1.7.min.js")" type="text/javascript"></script>
 </head>
 <body>
+    <link rel="shortcut icon" href="http://a1128.g.akamai.net/7/1128/497/0001/www.proflowers.com/siteimages/favicon.ico"/>
     <div class="page">
-        <header>
-            <div id="title">
+        <div id="header">
+            <div class="leftWrapper">
                 <h1>mKardz</h1>
             </div>
-            <div id="logindisplay">
-                @Html.Partial("_LogOnPartial")
+            <div class="midWrapper">
+                mKards | doing what we are doing
             </div>
-            <nav>
+            <div class="rightWrapper">
+                <div id="logindisplay">
+                    @Html.Partial("_LogOnPartial")
+                </div>
+            </div>
+            <div class="nav">
                 <ul id="menu">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Products", "Index", "Products")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                 </ul>
-            </nav>
-        </header>
-        <section id="main">
-            @RenderBody()
-        </section>
+            </div>
+        </div>
+        <div id="main">
+            <div id="mainContent">
+                @RenderBody()
+            </div>
+            <div id="rightbar">
+                <div class="nav">
+                    <ul>
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Products", "Index", "Products")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <footer>
         </footer>
     </div>

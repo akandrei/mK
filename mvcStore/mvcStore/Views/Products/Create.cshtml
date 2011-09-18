@@ -1,4 +1,4 @@
-﻿@model mvcStore.Models.Product
+﻿@model mvcStore.ViewModels.NewProductViewModel
 
 @{
     ViewBag.Title = "Create";
@@ -16,33 +16,33 @@
         <legend>Product</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Name)
+            @Html.LabelFor(model => model.Product.Name)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Name)
-            @Html.ValidationMessageFor(model => model.Name)
+            @Html.EditorFor(model => model.Product.Name)
+            @Html.ValidationMessageFor(model => model.Product.Name)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Description)
+            @Html.LabelFor(model => model.Product.Description)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Description)
-            @Html.ValidationMessageFor(model => model.Description)
+            @Html.EditorFor(model => model.Product.Description)
+            @Html.ValidationMessageFor(model => model.Product.Description)
         </div>
 
         <div class="editor-label">
             Product Image
         </div>
-        <input type="file" name="Image" id="Image" />
         <div class="editor-field">
+            <input type="file" name="Image" id="Image" />
         </div>
 
         <div class="editor-label">
             Product Type
         </div>
         <div class="editor-field">
-            @Html.DropDownList("ProductTypes")
+            @Html.DropDownListFor(model => model.SelectedTypeId, Model.ProductTypes)
         </div>
 
         <p>

@@ -83,8 +83,12 @@ page width. Or, you can specify an exact pixel width. */
 }
 
 header, #header {
+    width : 987;
     position: relative;
+    margin-top : auto;
     margin-bottom: 0px;
+    margin-right : auto;
+    margin-left : auto;
     color: #000;
     padding: 0;
 }
@@ -100,12 +104,35 @@ header h1, #header h1 {
     text-shadow: 1px 1px 2px #111;
 }
 
-#main {
+header .leftWrapper, header .midWrapper, header .rightWrapper, #header .leftWrapper, #header .midWrapper, #header .rightWrapper 
+{
+    width : 245px;
+    float : left;
+    position : relative;
+}
+
+#main 
+{
+    width : 987;
     padding: 30px 30px 15px 30px;
     background-color: #fff;
     border-radius: 4px 0 0 0;
     -webkit-border-radius: 4px 0 0 0;
     -moz-border-radius: 4px 0 0 0;
+    float : left;
+}
+
+#rightbar 
+{
+    width : 280;
+    background-color : #fff;
+    text-align : left;
+    margin-top : 0px;
+    margin-right : 0px;
+    margin-bottom : 35px;
+    margin-left : 0px;
+    fliat : left;
+    position : relative;
 }
 
 footer, 
